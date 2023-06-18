@@ -3,14 +3,3 @@
 .footer__fondo {
     background: linear-gradient(103deg, #1C3844 0%, #1D5272 100%);
 }
-
-.carousel_caption {
-    position: absolute;
-    right: 15%;
-    bottom: 1.25rem;
-    left: 15%;
-    padding-top: 15rem;
-    padding-bottom: 15rem;
-    color: #fff;
-    text-align: center;
-}
