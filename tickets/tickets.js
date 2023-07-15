@@ -10,18 +10,24 @@ let cardJunior = document.getElementById("junior");
 cardEstudiante.addEventListener('click', ()=>{
     document.getElementById("Categoria").selectedIndex="1";
     cardEstudiante.style.backgroundColor = "rgb(133, 193, 233)";
+    cardTrainee.style.backgroundColor = "transparent";
+    cardJunior.style.backgroundColor = "transparent";
     promocion = 0.2;
 })
 
 cardTrainee.addEventListener('click', ()=>{
     document.getElementById("Categoria").selectedIndex="2";
     cardTrainee.style.backgroundColor = "rgb(88, 214, 141)";
+    cardEstudiante.style.backgroundColor = "transparent";
+    cardJunior.style.backgroundColor = "transparent";
     promocion = 0.5;
 })
 
 cardJunior.addEventListener('click', ()=>{
     document.getElementById("Categoria").selectedIndex="3";
     cardJunior.style.backgroundColor = "rgb(249, 231, 159)";
+    cardEstudiante.style.backgroundColor = "transparent";
+    cardTrainee.style.backgroundColor = "transparent";
     promocion = 0.85;
 })
 
@@ -30,17 +36,26 @@ categorias.addEventListener('click', ()=>{
     switch (valorCategorias) {
         case "1":
             cardEstudiante.style.backgroundColor = "rgb(133, 193, 233)";
+            cardTrainee.style.backgroundColor = "transparent";
+            cardJunior.style.backgroundColor = "transparent";
             promocion = 0.2;
             break
         case "2":
             cardTrainee.style.backgroundColor = "rgb(88, 214, 141)";
+            cardEstudiante.style.backgroundColor = "transparent";
+            cardJunior.style.backgroundColor = "transparent";
             promocion = 0.5;
             break
         case "3":
             cardJunior.style.backgroundColor = "rgb(249, 231, 159)";
+            cardEstudiante.style.backgroundColor = "transparent";
+            cardTrainee.style.backgroundColor = "transparent";
             promocion = 0.85;
             break
         default:
+            cardEstudiante.style.backgroundColor = "transparent";
+            cardTrainee.style.backgroundColor = "transparent";
+            cardJunior.style.backgroundColor = "transparent";
             promocion = 1;
             break
     }
@@ -48,19 +63,26 @@ categorias.addEventListener('click', ()=>{
 
 botonBorrar.addEventListener('click', ()=>{
     inputs.forEach(input => input.value = '');
+    document.getElementById("Categoria").value = "0";
+    cardEstudiante.style.backgroundColor = "transparent";
+    cardTrainee.style.backgroundColor = "transparent";
+    cardJunior.style.backgroundColor = "transparent";
     document.getElementById('total').innerHTML = 'Total a Pagar: $ ';
 });
 
 function nombreComprador(nombre){
-    compradorNombre = nombre;    
+    compradorNombre = nombre; 
+    return compradorNombre   
 }
 
 function apellidoComprador(apellido){
-    compradorApellido = apellido;    
+    compradorApellido = apellido;   
+    return compradorApellido 
 }
 
 function correoComprador(correo){
-    compradorCorreo = correo;    
+    compradorCorreo = correo;
+    return compradorCorreo    
 }
 
 function cantidadBoletos(valor){
@@ -69,8 +91,8 @@ function cantidadBoletos(valor){
     }
     valor = parseInt(Math.round(valor));
     cantidad = valor;
+    return cantidad
 }
-
 
 botonResumen.addEventListener('click', ()=>{
     let vacio = 0;
